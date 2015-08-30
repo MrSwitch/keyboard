@@ -38,7 +38,7 @@
 
 			<p>
 				<label>Type</label>
-				<select name=biquadType id=biquadType onchange="biquad.type = this.selectedIndex" >
+				<select name=biquadType id=biquadType onchange="biquad.type = this.value.toLowerCase()" >
 					<option selected>LowPass</option>
 					<option>HighPass</option>
 					<option>BandPass</option>

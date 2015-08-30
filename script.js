@@ -2,22 +2,20 @@
 // Keyboard Javascript API
 // Author Andrew Dodson
 
-	var context = new webkitAudioContext();
+	var context = new AudioContext();
 
-	//
 	// GAIN
-	var gainNode = context.createGainNode();
+	// Is effectively the volume
+	var gainNode = context.createGain();
 	gainNode.gain.value = gain.value;
-
 
 	// Assume the output is all going through the mix node.
 	var compressor = context.createDynamicsCompressor();
 	compressor.connect(context.destination);
 
-	//
 	// BiQuad
 	var biquad = context.createBiquadFilter();
-	biquad.type = biquadType.selectedIndex;
+	biquad.type = biquadType.value.toLowerCase();
 	biquad.gain.value = biquadGain.value;
 	biquad.Q.value = biquadQ.value;
 	biquad.frequency.value = biquadFreq.value;
@@ -76,7 +74,7 @@
 		var osc;
 		btn.onmousedown = function(){
 			if(osc){
-				osc.gain.exponentialRampToValueAtTime(0, context.currentTime);
+				osc.gain.exponentialRampToValueAtTime(1.0, context.currentTime);
 			}
 			osc = addOscillator(parseFloat(item[1]));
 
@@ -87,7 +85,7 @@
 
 		function out(){
 			if(osc){
-				osc.gain.exponentialRampToValueAtTime(0, context.currentTime+0.01);
+				osc.gain.exponentialRampToValueAtTime(1.40130e-45, context.currentTime+0.01);
 				osc = null;
 			}
 		}
@@ -119,7 +117,7 @@
 
 		//
 		// GAIN
-		var gainNodeTemp = context.createGainNode();
+		var gainNodeTemp = context.createGain();
 		gainNodeTemp.gain.value = 0;
 		gainNodeTemp.gain.exponentialRampToValueAtTime(1, context.currentTime+0.01);
 
@@ -130,7 +128,7 @@
 		var oscillatorTemp = context.createOscillator();
 	//	oscillator.connect(context.destination); // Connect to speakers
 		oscillatorTemp.start(0); // Start generating sound immediately
-		oscillatorTemp.type = wave.selectedIndex;
+		oscillatorTemp.type = wave.value.toLowerCase();
 		oscillatorTemp.frequency.value = freq; // in hertz
 		oscillatorTemp.detune.value = detune.value; // in hertz
 
@@ -155,6 +153,9 @@
 	// Scoring
 	//
 
+
+/*
+
 	var selection = window.getSelection();//get the selection object (allows you to change selection)
 	var tempo = 2000;
 	var play = false;
@@ -177,8 +178,6 @@
 		}
 		e.preventDefault();
 	});
-
-/*
 	function addToScore(item){
 
 		var span = document.createElement("span");
