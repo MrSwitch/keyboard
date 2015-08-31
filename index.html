@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html>
 <title>&#9835; Mix</title>
+<link href="/adorn/adorn.css" rel="stylesheet"/>
+<script src="/adorn/adorn.js" async></script>
+
 <!--<script src="http://vexflow.com/support/raphael.js"></script>
 <script src="http://vexflow.com/support/vexflow-min.js"></script>
 -->
-<meta content="author" description="Andrew Dodson"/> 
+<meta content="author" description="Andrew Dodson"/>
 <link rel="stylesheet" href="style.css"/>
+<body class="adorn-fullscreen">
 <article>
 	<audio>Your browser doesn't support the Audio tag</audio>
 	<header>KeyBoard <button data-toggle="#keyboardSettings">Settings</button></header>
@@ -27,7 +31,7 @@
 
 			<p>
 				<label>Detune</label>
-				<input type="range" name="detune" id="detune" min=0 max=100 value=0 step=1  data-units="Cents"/> 
+				<input type="range" name="detune" id="detune" min=0 max=100 value=0 step=1  data-units="Cents"/>
 			</p>
 
 		</section>
@@ -52,22 +56,22 @@
 
 			<p>
 				<label>Frequency</label>
-				<input type=range name=biquadFreq id=biquadFreq oninput="biquad.frequency.value = this.value" min=0 max=1000 value=500 step=1  data-units="Hz"/> 
+				<input type=range name=biquadFreq id=biquadFreq oninput="biquad.frequency.value = this.value" min=0 max=1000 value=500 step=1  data-units="Hz"/>
 			</p>
 
 			<p>
 				<label>Detune</label>
-				<input type=range name=biquadQ id=biquadDetune oninput="biquad.detune.value = this.value" min=0 max=100 value=1 step=0.1 data-units="Cents"/> 
+				<input type=range name=biquadQ id=biquadDetune oninput="biquad.detune.value = this.value" min=0 max=100 value=1 step=0.1 data-units="Cents"/>
 			</p>
 
 			<p>
 				<label>Q</label>
-				<input type=range name=biquadQ id=biquadQ oninput="biquad.Q.value = this.value" min=0 max=100 value=1 step=0.1 data-units=""/> 
+				<input type=range name=biquadQ id=biquadQ oninput="biquad.Q.value = this.value" min=0 max=100 value=1 step=0.1 data-units=""/>
 			</p>
 
 			<p>
 				<label>Gain</label>
-				<input type=range name=biquadGain id=biquadGain oninput="biquad.gain.value = this.value" min=0 max=1 value=0.5 step=0.05 data-units="dB"/> 
+				<input type=range name=biquadGain id=biquadGain oninput="biquad.gain.value = this.value" min=0 max=1 value=0.5 step=0.05 data-units="dB"/>
 			</p>
 
 		</section>
@@ -78,27 +82,27 @@
 
 			<p>
 				<label>threshold</label>
-				<input type=range name=threshold id=threshold oninput="compresor.threshold.value = this.value" min=-100 max=0 value=-24 step=1 data-units="dB"/> 
+				<input type=range name=threshold id=threshold oninput="compresor.threshold.value = this.value" min=-100 max=0 value=-24 step=1 data-units="dB"/>
 			</p>
 			<p>
 				<label>knee</label>
-				<input type=range name=knee id=knee oninput="compresor.knee.value = this.value" min=0 max=40 value=30 step=1 data-units="dB"/> 
+				<input type=range name=knee id=knee oninput="compresor.knee.value = this.value" min=0 max=40 value=30 step=1 data-units="dB"/>
 			</p>
 			<p>
 				<label>ratio</label>
-				<input type=range name=ratio id=ratio oninput="compresor.ratio.value = this.value" min=0 max=20 value=12 step=1 data-units=""/> 
+				<input type=range name=ratio id=ratio oninput="compresor.ratio.value = this.value" min=0 max=20 value=12 step=1 data-units=""/>
 			</p>
 			<p>
 				<label>reduction</label>
-				<input type=range name=reduction id=reduction oninput="compresor.reduction.value = this.value" min=-20 max=0 value=0 step=1 data-units="dB"/> 
+				<input type=range name=reduction id=reduction oninput="compresor.reduction.value = this.value" min=-20 max=0 value=0 step=1 data-units="dB"/>
 			</p>
 			<p>
 				<label>attack</label>
-				<input type=range name=attack id=attack oninput="compresor.attack.value = this.value" min=0 max=1 value=0.03 step=0.01 data-units="secs"/> 
+				<input type=range name=attack id=attack oninput="compresor.attack.value = this.value" min=0 max=1 value=0.03 step=0.01 data-units="secs"/>
 			</p>
 			<p>
 				<label>release</label>
-				<input type=range name=release id=release oninput="compresor.release.value = this.value" min=0 max=1 value=0.250 step=0.01 data-units="secs"/> 
+				<input type=range name=release id=release oninput="compresor.release.value = this.value" min=0 max=1 value=0.250 step=0.01 data-units="secs"/>
 			</p>
 
 		</section>
@@ -109,10 +113,10 @@
 
 			<p>
 				<label>Volume</label>
-				<input type=range name=gain id=gain oninput="gainNode.gain.value = this.value;" min=0 max=1 value=0.5 step=0.05 data-units="dB"/> 
+				<input type=range name=gain id=gain oninput="gainNode.gain.value = this.value;" min=0 max=1 value=0.5 step=0.05 data-units="dB"/>
 			</p>
 
-			<button type=button name=mute id=mute onclick="document.forms[0].gain.value = gainNode.gain.value = 0;">Mute</button> 
+			<button type=button name=mute id=mute onclick="document.forms[0].gain.value = gainNode.gain.value = 0;">Mute</button>
 
 		</section>
 	</form>

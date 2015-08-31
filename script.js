@@ -50,11 +50,11 @@
 		analyser.getByteFrequencyData(freqByteData);
 		if(i++ < 60){
 			console.log(freqByteData);
-			window.requestAnimationFrame(draw);	
+			window.requestAnimationFrame(draw);
 		}
     }
 
-	draw();	
+	draw();
 
 
 
@@ -111,7 +111,7 @@
 	}
 
 
-	// 
+	//
 	// AddOscillator
 	function addOscillator(freq){
 
@@ -143,7 +143,7 @@
 
 	var a = document.querySelectorAll("button[data-toggle]");
 	for(var i=0;i<a.length;i++){
-		a[i].onclick=function(){
+		a[i].onclick = function(){
 			this.classList.toggle("visible");
 			document.querySelector(this.getAttribute("data-toggle")).classList.toggle("visible");
 		};
@@ -201,7 +201,7 @@
 		var	text = score.innerText;
 
 		if(play&&text){
-			
+
 			var notes = text.split(" ");
 			var range = document.createRange();//Create a range (a range is a like the selection but invisible)
 			range.selectNodeContents(score);//Select the entire contents of the element with the range

@@ -1,16 +1,17 @@
-
 *{
 	box-sizing:border-box;
 }
-
-body{
+html{
 	background:#000;
+}
+body{
 	font-size:12px;
 	font-family: "Trebuchet MS";
-	margin: 0;
-	padding: 10px;	
 	text-align: center;
 	min-width: 1250px;
+	margin-top: 50px !important;
+	padding:0;
+	min-width: 1330px;
 }
 
 article{
@@ -41,6 +42,7 @@ form{
 
 button[data-toggle]{
 	background-color: transparent;
+	border-style:solid;
 	border-color:transparent;
 	border-width:0 7px 0 7px;
 	font-size: 0;
@@ -49,12 +51,15 @@ button[data-toggle]{
 	vertical-align: middle;
 	-webkit-transition:-webkit-transform 1s;
 	border-top:10px solid gray;
-	
+
 	&:hover{
 		border-top-color:white;
 	}
 	&.visible{
 		-webkit-transform:rotate(180deg);
+	}
+	&:active{
+		outline:none;
 	}
 }
 
@@ -96,7 +101,7 @@ input{
  * Keyboard
  */
 div.keyboard{
-	padding:20px; 
+	padding:20px;
 	border-radius: 10px;
 	min-height: 100px;
 	text-align: center;
